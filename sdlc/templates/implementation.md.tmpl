@@ -1,0 +1,82 @@
+---
+title: {{프로젝트명}} 구현 기록
+stage: implementation
+status: draft
+created: {{YYYY-MM-DD}}
+updated: {{YYYY-MM-DD}}
+issue: [{{"#번호"}}]
+issue_checked: {{YYYY-MM-DD}}
+solution: {{slug 또는 생략}}
+repo: {{rvs-apps | rvs-common}}
+branch: {{작업 브랜치}}
+work_class: {{common-addition | solution-derived | new-function}}
+---
+
+# {{프로젝트명}} 구현 기록
+
+> 근거: [[design]] (`status: approved`) + Redmine 착수 게이트 통과
+
+## 1. 착수 게이트 통과 기록
+
+| 단계 | 확인 | 결과 |
+|------|------|------|
+| 1 Live Redmine 조회 | {{YYYY-MM-DD HH:MM}} | {{subject / status}} |
+| 2 workflow 문서 확인 | | |
+| 3 솔루션 판별 | | `{{slug}}` — 근거: {{}} |
+| 4 repo/branch/worktree | | {{경로}} |
+| 5 유사 작업 검색 | | {{발견 / 없음}} |
+| 6 목표·제약 정리 | | |
+| 7 승인 패킷 제시 | | |
+| 8 사용자 명시적 선택 | {{YYYY-MM-DD}} | {{제안된 작업 계획대로 진행 / scope 수정 후 진행}} |
+
+## 2. 작업 환경
+
+| 항목 | 값 |
+|------|-----|
+| 워크트리 | `{{.hermes/session-worktrees/<slug>}}` |
+| 작업 브랜치 | `work/solution_{{slug}}/redmine_{{번호}}_{{topic}}` |
+| 기준 브랜치 | `{{solution_xxx}}` |
+
+## 3. 구현 단위별 진행
+
+| WBS | 내용 | 상태 | 커밋 | 비고 |
+|-----|------|------|------|------|
+| W-01 | {{}} | 완료/진행/블록 | `{{SHA}}` | |
+
+## 4. 변경 파일
+
+| 경로 | 성격 | 요구사항 |
+|------|------|---------|
+| `{{repos/rvs-apps/apps/.../File.tsx}}` | 수정/추가 | FR-01 |
+
+## 5. 설계 대비 변경
+
+설계와 다르게 구현한 부분을 적는다. **설계서를 조용히 어기지 않는다.**
+
+| 설계 | 실제 | 이유 |
+|------|------|------|
+| {{}} | {{}} | {{}} |
+
+변경이 크면 `design.md`를 갱신하고 재승인을 받는다.
+
+## 6. 6-Phase 사이클 추적 (RVS)
+
+| Phase | 상태 | 산출 |
+|-------|------|------|
+| 1 LOOKUP | | `.workspace/issue-{{번호}}/lookup.json` |
+| 2 ANALYZE | | `analysis.json` |
+| 3 EXECUTE | | `execute.json` |
+| 4 REVIEW ↔ FIX | {{핑퐁 N회}} | |
+| 5 VALIDATE | | |
+| 5.5 SWEEP | | |
+| 6 CLOSE | | {{사용자 승인 후}} |
+
+## 7. 검증
+
+- `{{실행한 명령}}` → {{결과}}
+
+실행하지 않은 것은 적지 않는다. 실패는 출력과 함께 실패로 적는다.
+
+## 8. 미해결
+
+- {{남은 작업·알려진 제약·후속 이슈}}
