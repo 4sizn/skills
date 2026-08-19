@@ -17,7 +17,9 @@ sdlc/
 │   ├── defect.md
 │   ├── deploy.md
 │   └── status.md
-└── templates/               # 단계별 산출물 템플릿
+├── templates/               # 단계별 산출물 템플릿
+└── docs/
+    └── sdlc-waterfall-flow.html  # MermaidJS 기반 흐름·게이트 UI 문서
 ```
 
 ## 단계 흐름
