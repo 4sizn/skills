@@ -6,7 +6,7 @@
 
 | 스킬 | 설명 |
 |---|---|
-| SDLC | [Anthropic AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)을 필수 기준으로 사용합니다. 본 저장소의 `sdlc` 스킬은 이와 별개로 자체 설계한 폭포수 운영 규약입니다. |
+| `ai-native-sdlc` | [Anthropic AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)을 필수 기준으로 사용합니다. 본 저장소의 자체 설계 폭포수 규약은 [`deprecated/sdlc`](../deprecated/sdlc/SKILL.md)로 이동했습니다. |
 | `visual-e2e-proof` | 사용자 가시 결과물을 실제 실행 환경에서 캡처하고 채팅과 OS 미리보기 양쪽에 증거로 표시하는 완료 검증 |
 | `tdd` | 테스트 우선 개발(red-green-refactor)과 통합 테스트 작성 |
 | `code-review` | 기준 커밋 이후 변경을 코딩 표준 축과 스펙 준수 축으로 병렬 리뷰 |
@@ -52,3 +52,17 @@
 |---|---|
 | `axiom-swiftui` | SwiftUI UI 구현·수정·개선. 뷰, 내비게이션, 레이아웃, 애니메이션, 성능, 제스처 |
 | `axiom-macos` | macOS 앱 개발. 윈도우, 메뉴, 샌드박싱, 배포, AppKit 브리징 |
+
+## 선택 (Optional)
+
+필수는 아니지만 해당 작업을 할 때 설치하면 유용한 항목입니다.
+
+| 도구 | 설명 |
+|---|---|
+| [`agent-device`](https://github.com/callstack/agent-device) | 모바일·데스크톱 앱 자동화 플랫폼. 에이전트가 실행 중인 앱의 접근성 스냅샷을 읽고 UI를 조작하며 스크린샷·로그·성능 지표를 수집합니다. iOS, Android, HarmonyOS, tvOS, Android TV, Amazon Vega OS TV, web, macOS, Linux를 시뮬레이터·에뮬레이터·실기기에서 지원합니다. CLI, MCP 서버(`agent-device mcp`), 타입이 있는 Node.js API 세 가지 인터페이스를 제공하고 재현 가능한 흐름을 `.ad` 스크립트로 저장합니다. 앱 UI 작업에서 `visual-e2e-proof`의 캡처 단계를 실기기까지 확장할 때 사용합니다. |
+
+`agent-device` 설치 (Node.js 22.12 이상 필요):
+
+```bash
+npm install -g agent-device@latest
+```
