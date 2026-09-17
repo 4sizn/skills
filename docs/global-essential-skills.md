@@ -60,9 +60,16 @@
 | 도구 | 설명 |
 |---|---|
 | [`agent-device`](https://github.com/callstack/agent-device) | 모바일·데스크톱 앱 자동화 플랫폼. 에이전트가 실행 중인 앱의 접근성 스냅샷을 읽고 UI를 조작하며 스크린샷·로그·성능 지표를 수집합니다. iOS, Android, HarmonyOS, tvOS, Android TV, Amazon Vega OS TV, web, macOS, Linux를 시뮬레이터·에뮬레이터·실기기에서 지원합니다. CLI, MCP 서버(`agent-device mcp`), 타입이 있는 Node.js API 세 가지 인터페이스를 제공하고 재현 가능한 흐름을 `.ad` 스크립트로 저장합니다. 앱 UI 작업에서 `visual-e2e-proof`의 캡처 단계를 실기기까지 확장할 때 사용합니다. |
+| [`awesome-copilot`](https://github.com/github/awesome-copilot) | GitHub가 운영하는 Copilot 커스터마이징 모음. 에이전트, 지침(instructions), 스킬, 플러그인, 쿡북을 카테고리별로 제공하고 [awesome-copilot.github.com](https://awesome-copilot.github.com/)에서 전문 검색을 지원합니다. Copilot 대상이라 그대로 설치해 쓰기보다 규약을 어떻게 코드화하는지 참고하는 용도입니다. 특히 [`write-coding-standards-from-file`](https://github.com/github/awesome-copilot/tree/main/skills/write-coding-standards-from-file) 스킬은 기존 소스 파일이나 폴더의 실제 문법(들여쓰기, 명명, 주석, 조건·함수 작성 방식)을 읽어 `CONTRIBUTING.md`나 `CODING_STANDARDS.md` 같은 표준 문서를 역으로 생성하고, 불일치를 찾아 수정까지 제안합니다. 이 저장소의 스킬 설계에 영감을 준 출처입니다. |
 
 `agent-device` 설치 (Node.js 22.12 이상 필요):
 
 ```bash
 npm install -g agent-device@latest
+```
+
+`awesome-copilot` 플러그인 설치 (Copilot CLI):
+
+```bash
+copilot plugin install <plugin-name>@awesome-copilot
 ```
