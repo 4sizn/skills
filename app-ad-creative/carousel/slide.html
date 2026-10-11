@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Pretendard; src: url(Pretendard-Bold.otf); font-weight: 700; }
+  @font-face { font-family: Lilita; src: url(LilitaOne-Regular.ttf); }
+  /* EDIT PER APP: brand colors (--lime = accent) */ :root { --deep:#0A2914; --lime:#5ED45E; --cream:#F4F8EF; --ink:#0A2914; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; }
+  body { background: radial-gradient(120% 80% at 50% 0%, #1E5A2C 0%, #0F3A1C 45%, var(--deep) 100%);
+    font-family: Pretendard, sans-serif; color: var(--cream); position: relative; }
+  .brand { position: absolute; top: 56px; left: 64px; font-family: Lilita; font-size: 40px; letter-spacing: .5px;
+    color: #fff; transform: skewX(-8deg); text-shadow: 0 5px 0 var(--lime), 0 0 1px var(--deep);
+    -webkit-text-stroke: 6px var(--deep); paint-order: stroke fill; }
+  .count { position: absolute; top: 66px; right: 64px; font-size: 26px; color: rgba(244,248,239,.55); letter-spacing: 2px; }
+  h1 { position: absolute; top: 150px; left: 64px; right: 64px; font-size: 78px; line-height: 1.08; letter-spacing: -2.5px; }
+  h1 em { font-style: normal; color: var(--lime); }
+  .sub { position: absolute; top: 340px; left: 64px; right: 64px; font-size: 32px; color: rgba(244,248,239,.72); letter-spacing: -.5px; }
+  .shot { position: absolute; left: 50%; bottom: -40px; width: 860px; transform: translateX(-50%);
+    border-radius: 48px; border: 10px solid #fff; box-shadow: 0 16px 0 var(--lime), 0 30px 60px rgba(0,0,0,.45); overflow: hidden; }
+  .shot img { display: block; width: 100%; }
+  /* CTA slide */
+  .cta { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .cta img { width: 300px; height: 300px; border-radius: 68px; box-shadow: 0 14px 0 var(--lime), 0 30px 60px rgba(0,0,0,.45); }
+  .cta .name { margin-top: 64px; font-size: 72px; letter-spacing: -2px; }
+  .cta .line { margin-top: 18px; font-size: 34px; color: rgba(244,248,239,.75); }
+  .cta .pill { margin-top: 56px; background: var(--lime); color: var(--ink); font-size: 38px; padding: 26px 56px; border-radius: 999px;
+    box-shadow: 0 8px 0 #2E8A34; }
+  .cta .small { margin-top: 34px; font-size: 26px; color: rgba(244,248,239,.5); }
+</style>
+</head>
+<body>
+<div class="brand">PhoneSwing Golf</div>
+<div class="count" id="count"></div>
+<div id="content"></div>
+<script>
+  // ---- EDIT PER APP: brand name, slide copy, screenshot crops (PNG next to this file), CTA ----
+  const BRAND = 'PhoneSwing Golf';
+  const CTA = { name: 'PhoneSwing Golf', line: 'Swing your phone like a golf club', pill: 'Free on the App Store', small: 'Search “PhoneSwing Golf” · iPhone' };
+  const S = {
+    1: { h: 'Swing your phone.<br><em>Hit real golf shots.</em>', sub: 'Motion golf in quick 3-hole rounds', img: 'e1.png' },
+    2: { h: 'Clear the water.<br><em>Land the island.</em>', sub: 'Your real swing sets the distance', img: 'e2.png' },
+    3: { h: 'Read the green.<br><em>Sink the putt.</em>', sub: 'Wind, clubs, and a putter for the finish', img: 'e3.png' },
+    4: { h: '4 courses +<br>a <em>Daily Challenge</em>', sub: 'A new course every day · Game Center leaderboards', img: 'e4.png' },
+  };
+  const n = Number(location.hash.slice(1) || 1);
+  const TOTAL = Object.keys(S).length + 1;
+  document.getElementById('count').textContent = `${n} / ${TOTAL}`;
+  document.querySelector('.brand').textContent = BRAND;
+  const c = document.getElementById('content');
+  if (S[n]) {
+    c.innerHTML = `<h1>${S[n].h}</h1><div class="sub">${S[n].sub}</div><div class="shot"><img src="${S[n].img}"></div>`;
+  } else {
+    c.innerHTML = `<div class="cta"><img src="icon.png"><div class="name">${CTA.name}</div><div class="line">${CTA.line}</div><div class="pill">${CTA.pill}</div><div class="small">${CTA.small}</div></div>`;
+  }
+</script>
+</body>
+</html>

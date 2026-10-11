@@ -8,6 +8,9 @@
 |---|---|
 | [`heeseok-writing-style`](heeseok-writing-style/SKILL.md) | 신희석의 한국어 작성 스타일로 기술 블로그·회고·업무 문서·의견 글을 작성하고 퇴고 |
 | [`visual-e2e-proof`](visual-e2e-proof/SKILL.md) | 사용자에게 보이는 결과물을 실제 실행 환경에서 캡처하고 채팅과 OS 미리보기 양쪽에 증거로 표시하는 완료 검증 |
+| [`app-ad-creative`](app-ad-creative/SKILL.md) | 실기기 앱 화면으로 인스타 캐러셀·9:16 광고 릴스·App Store 프리뷰 영상 제작(Remotion 템플릿 + 오리지널 음악 생성) |
+| [`instagram-post`](instagram-post/SKILL.md) | iPhone 인스타그램 앱을 자동 조작해 캐러셀·릴스 게시(미디어 전송·사진 권한·캡션·해시태그·게시 확인) |
+| [`appstore-media`](appstore-media/SKILL.md) | App Store Connect API로 앱 프리뷰 영상 업로드, 피처링 추천 생성·제출 |
 
 각 스킬의 지침은 `SKILL.md`에서 확인합니다. 추가 안내가 있는 스킬은 아래 문서를 참고하세요.
 
