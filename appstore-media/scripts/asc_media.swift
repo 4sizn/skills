@@ -172,9 +172,26 @@ case "status":
     print("version: \(attributes(version)["versionString"] ?? "")  state: \(attributes(version)["appStoreState"] ?? "")")
     for loc in list("/v1/appStoreVersions/\(identifier(version))/appStoreVersionLocalizations?limit=50") {
         let sets = list("/v1/appStoreVersionLocalizations/\(identifier(loc))/appPreviewSets?limit=50")
-        let types = sets.map { (attributes($0)["previewType"] as? String) ?? "?" }
+        // Type plus Apple's processing state per preview, e.g. IPHONE_67[COMPLETE].
+        let types = sets.map { set -> String in
+            let states = list("/v1/appPreviewSets/\(identifier(set))/appPreviews?limit=10").map {
+                ((attributes($0)["assetDeliveryState"] as? [String: Any])?["state"] as? String) ?? "?"
+            }
+            return "\((attributes(set)["previewType"] as? String) ?? "?")\(states)"
+        }
         print("  \(attributes(loc)["locale"] ?? "")  previews: \(types)")
     }
+
+case "new-version":
+    // Draft only: Apple copies the previous version's localizations; nothing is submitted for review.
+    let app = findApp(bundleID: args.require("bundle-id"))
+    let versionString = args.require("version")
+    let created = request("POST", "/v1/appStoreVersions", body: ["data": [
+        "type": "appStoreVersions", "attributes": ["platform": "IOS", "versionString": versionString],
+        "relationships": ["app": ["data": ["type": "apps", "id": identifier(app)]]],
+    ]])
+    let item = (created["data"] as? [String: Any]) ?? [:]
+    print("created version \(versionString) (\(identifier(item))) state: \(attributes(item)["appStoreState"] ?? "")")
 
 case "previews":
     let locale = args.require("locale")

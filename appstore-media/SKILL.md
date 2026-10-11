@@ -22,7 +22,8 @@ If a project has no `release-env.sh`, reuse PhoneSwing Golf's — it is the same
 
 | Command | What it does |
 |---|---|
-| `status --bundle-id B` | Editable version, its state, and the preview sets per locale |
+| `status --bundle-id B` | Editable version, its state, and the preview sets per locale with Apple's processing state (`COMPLETE`/`FAILED`) |
+| `new-version --bundle-id B --version X.Y` | Create the next App Store version as a draft (PREPARE_FOR_SUBMISSION) so previews can attach; nothing is submitted |
 | `previews --bundle-id B --locale L --file F.mp4 [--type IPHONE_67] [--frame 00:00:05:00] [--replace]` | Upload one App Preview to that locale's preview set |
 | `nominations [--state DRAFT\|SUBMITTED\|ARCHIVED]` | List featuring nominations on the account |
 | `nominate --bundle-id B --in nom.json [--submit]` | Create a nomination draft from attributes JSON; `--submit` sends it to Apple |
